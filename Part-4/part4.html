@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Js 3 Bangla Tutorial</title>
+</head>
+<body>
+    <header>
+        <h2>Vue Js 3 Bangla Tutorial</h2>
+    </header>
+
+    <div id="app">
+        <h1>{{tutorialInfo.title}}</h1>
+        <p>{{tutorialInfo.author}}</p>
+        <a :href="tutorialInfo.github">Github</a>
+        <a v-bind:href="tutorialInfo.github">Github</a>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
