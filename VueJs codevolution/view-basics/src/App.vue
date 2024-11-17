@@ -7,7 +7,8 @@ export default {
       name: "John Doe",
       age: 30,
       channel: 'Mohammad Al Amin Siam',
-      facebook: 'https://www.facebook.com/mohammad.alamin.siam'
+      facebook: 'https://www.facebook.com/mohammad.alamin.siam',
+      example_of_an_html: '<a href="https://www.facebook.com/mohammad.alamin.siam">Mohammad Al Amin Siam</a>'
     }
   },
   methods: {
@@ -22,10 +23,13 @@ export default {
 <!--In Vue 3, the v-text directive is used to update the text content of an element. 
 It is a shorthand for binding the inner text of an element to a Vue data property or expression. 
 Essentially, it works like {{ ... }} interpolation but in a more explicit way -->
+
+<!-- In Vue 3, the v-html directive is used to update the HTML content of an element -->
 <template>
   <div>
     <div>{{ name }} {{ age }}</div>
     <p v-text="message"></p>
+    <p v-html="example_of_an_html"></p>
     <button @click="changeMessage">change message</button>
   </div>
 </template>
