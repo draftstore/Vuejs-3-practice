@@ -38,7 +38,30 @@ export default {
       },
       number: -5,
       display: true,
-      showElement: false
+      showElement: false,
+      names: ['John', 'Jane', 'Bob', 'Alice'],
+      fullName: [
+        { firstName: 'John', lastName: 'Doe' },
+        { firstName: 'Jane', lastName: 'Doe' },
+        { firstName: 'Bob', lastName: 'Doe' },
+        { firstName: 'Alice', lastName: 'Doe' },
+      ],
+      actors: [
+        {
+          name: 'John Doe',
+          movies: [
+            'The Shawshank Redemption',
+            'The Godfather',
+            'The Dark Knight'],
+        },
+        {
+          name: 'Jane Doe',
+          movies: [
+            'The Lord of the Rings: The Fellowship of the Ring',
+            'The Lord of the Rings: The Two Towers',
+            'The Lord of the Rings: The Return of the King'],
+        },
+      ]
     }
   },
   methods: {
@@ -91,6 +114,14 @@ Essentially, it works like {{ ... }} interpolation but in a more explicit way --
     <!-- On the other hand v-if works like display:none. If the property is false, it won't show in the DOM -->
     <h2 v-show="showElement">using v-show</h2>
     <h2 v-if="showElement">using v-if</h2>
+    <h2 v-for="(name, index) in names" :key="name"> {{ index }} {{ name }}</h2>
+    <h2 v-for="name in fullName" :key="name.siam"> {{ name.firstName }} {{ name.lastName }} </h2>
+    <div v-for="actor in actors" :key="actor.name">
+      <h2> {{ actor.name }} </h2>
+      <h2 v-for="movie in actor.movies" :key="movies">{{ movie }}</h2>
+    </div>
+
+
   </div>
 </template>
 <!--Two ways to bind texts-->
