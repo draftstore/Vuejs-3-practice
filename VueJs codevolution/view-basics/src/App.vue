@@ -8,7 +8,12 @@ export default {
       age: 30,
       channel: 'Mohammad Al Amin Siam',
       facebook: 'https://www.facebook.com/mohammad.alamin.siam',
-      example_of_an_html: '<a href="https://www.facebook.com/mohammad.alamin.siam">Mohammad Al Amin Siam</a>'
+      example_of_an_html: '<a href="https://www.facebook.com/mohammad.alamin.siam">Mohammad Al Amin Siam</a>',
+      headingId: 'heading',
+      isDisabled: false,
+      status: 'danger',
+      isPromoted: true,
+      isSoldout: true
     }
   },
   methods: {
@@ -31,6 +36,13 @@ Essentially, it works like {{ ... }} interpolation but in a more explicit way --
     <p v-text="message"></p>
     <p v-html="example_of_an_html"></p>
     <button @click="changeMessage">change message</button>
+    <div v-bind:id="headingId">Example of an id</div>
+    <button v-bind:disabled="isDisabled">V-Bind Button example</button>
+    <h2 v-bind="{ class: 'underline' }">Underlined Text</h2>
+    <h2 class="underline" v-bind:class="status">Status</h2>
+    <h2 v-bind:class="isPromoted && 'promoted'">Movie Name</h2>
+    <h2 v-bind:class="isSoldout ? 'sold-out' : 'new'">Sold-out movie</h2> <!-- Conditional binding -->
+    <h2 v-bind:class="['new', 'promoted']">Newly promoted movie</h2> <!-- Array of classes -->
   </div>
 </template>
 <!--Two ways to bind texts-->
@@ -43,6 +55,22 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.promoted {
+  font-style: italic;
+}
+
+.new {
+  color: green;
+}
+
+.sold-out {
+  color: red;
 }
 
 @media (min-width: 1024px) {
