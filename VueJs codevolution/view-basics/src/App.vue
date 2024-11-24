@@ -13,7 +13,29 @@ export default {
       isDisabled: false,
       status: 'danger',
       isPromoted: true,
-      isSoldout: true
+      isSoldout: true,
+      highlightColor: 'orange',
+      headerSize: 50,
+      //StyleObject example
+      headerStyleObject: {
+        backgroundColor: 'orange',
+        fontSize: '50px',
+        padding: '10px',
+        color: 'white'
+      },
+      baseStyleObject:
+      {
+        backgroundColor: 'orange',
+        fontSize: '50px',
+        padding: '10px',
+        color: 'white'
+      },
+      successStyleObject: {
+        backgroundColor: 'green',
+        fontSize: '50px',
+        padding: '10px',
+        color: 'white'
+      }
     }
   },
   methods: {
@@ -43,6 +65,15 @@ Essentially, it works like {{ ... }} interpolation but in a more explicit way --
     <h2 v-bind:class="isPromoted && 'promoted'">Movie Name</h2>
     <h2 v-bind:class="isSoldout ? 'sold-out' : 'new'">Sold-out movie</h2> <!-- Conditional binding -->
     <h2 v-bind:class="['new', 'promoted']">Newly promoted movie</h2> <!-- Array of classes -->
+    <h2 v-bind:style="{
+      color: highlightColor,
+      fontSize: headerSize + 'px',
+      padding: '10px'
+    }">Inline Style</h2>
+    <h2 v-bind:style="headerStyleObject">Style Object</h2>
+    <div v-bind:style="[baseStyleObject, successStyleObject]"> <!-- Array of styles. It overrides the baseStyleObject-->
+      Success Style
+    </div>
   </div>
 </template>
 <!--Two ways to bind texts-->
