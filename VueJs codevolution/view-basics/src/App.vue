@@ -37,7 +37,8 @@ export default {
         color: 'white'
       },
       number: -5,
-      display: true
+      display: true,
+      showElement: false
     }
   },
   methods: {
@@ -85,7 +86,11 @@ Essentially, it works like {{ ... }} interpolation but in a more explicit way --
       <h2>Age:26</h2>
       <h2>Facebook: <a v-bind:href="facebook">Mohammad Al Amin Siam</a></h2>
     </template>
-
+    <!-- v-show and v-if are used to conditionally render elements -->
+    <!-- v-show works like style:none. Even if the property is false, it will show in the DOM -->
+    <!-- On the other hand v-if works like display:none. If the property is false, it won't show in the DOM -->
+    <h2 v-show="showElement">using v-show</h2>
+    <h2 v-if="showElement">using v-if</h2>
   </div>
 </template>
 <!--Two ways to bind texts-->
