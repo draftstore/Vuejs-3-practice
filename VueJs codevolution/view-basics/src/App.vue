@@ -35,7 +35,9 @@ export default {
         fontSize: '50px',
         padding: '10px',
         color: 'white'
-      }
+      },
+      number: -5,
+      display: true
     }
   },
   methods: {
@@ -74,6 +76,16 @@ Essentially, it works like {{ ... }} interpolation but in a more explicit way --
     <div v-bind:style="[baseStyleObject, successStyleObject]"> <!-- Array of styles. It overrides the baseStyleObject-->
       Success Style
     </div>
+    <h2 v-if="number === 0" v-bind:class="['new']">The number is zero</h2>
+    <h2 v-else-if="number < 0">The number is negative</h2>
+    <h2 v-else-if="number > 0">The number is positive</h2>
+    <h1 v-else>The number is not zero</h1>
+    <template v-if="display">
+      <h2>Mohammad Al Amin Siam</h2>
+      <h2>Age:26</h2>
+      <h2>Facebook: <a v-bind:href="facebook">Mohammad Al Amin Siam</a></h2>
+    </template>
+
   </div>
 </template>
 <!--Two ways to bind texts-->
