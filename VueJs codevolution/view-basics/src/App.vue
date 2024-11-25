@@ -61,7 +61,12 @@ export default {
             'The Lord of the Rings: The Two Towers',
             'The Lord of the Rings: The Return of the King'],
         },
-      ]
+      ],
+      formValues: {
+        name: '',
+        age: '',
+        jobLocation: [],
+      }
     }
   },
   methods: {
@@ -120,7 +125,29 @@ Essentially, it works like {{ ... }} interpolation but in a more explicit way --
       <h2> {{ actor.name }} </h2>
       <h2 v-for="movie in actor.movies" :key="movies">{{ movie }}</h2>
     </div>
+    <div>
+      <pre>{{ JSON.stringify(formValues, null, 2) }}</pre>
+    </div>
+    <div>
+      <form action="">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" name="name" v-model="formValues.name">
+          <label for="age">Age</label>
+          <input type="number" name="age" v-model="formValues.age">
+          <label for="countries">Countries</label>
+          <hr>
+          <label for="job-location">Job Location</label>
+          <select id="job-location" multiple v-model="formValues.jobLocation">
+            <option value="bangladesh">Bangladesh</option>
+            <option value="india">India</option>
+            <option value="pakistan">Pakistan</option>
+            <option value="america">America</option>
+          </select>
+        </div>
+      </form>
 
+    </div>
 
   </div>
 </template>
