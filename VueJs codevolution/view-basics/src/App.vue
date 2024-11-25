@@ -144,6 +144,9 @@ Essentially, it works like {{ ... }} interpolation but in a more explicit way --
             <option value="pakistan">Pakistan</option>
             <option value="america">America</option>
           </select>
+
+          <input for="remoteWork" type="checkbox" name="remote-work" v-model="formValues.remoteWork">
+          <label for="remoteWork">Open to work remote?</label>
         </div>
       </form>
 
