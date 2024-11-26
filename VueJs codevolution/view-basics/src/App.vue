@@ -132,7 +132,7 @@ Essentially, it works like {{ ... }} interpolation but in a more explicit way --
       <form action="">
         <div>
           <label for="name">Name</label>
-          <input type="text" name="name" v-model="formValues.name">
+          <input type="text" name="name" v-model.trim.lazy="formValues.name">
           <label for="age">Age</label>
           <input type="number" name="age" v-model="formValues.age">
           <label for="countries">Countries</label>
