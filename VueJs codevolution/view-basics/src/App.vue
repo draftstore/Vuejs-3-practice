@@ -23,6 +23,8 @@ export default {
         padding: '10px',
         color: 'white'
       },
+      firstName: 'John',
+      lastName: 'Doe',
       baseStyleObject:
       {
         backgroundColor: 'orange',
@@ -40,12 +42,6 @@ export default {
       display: true,
       showElement: false,
       names: ['John', 'Jane', 'Bob', 'Alice'],
-      fullName: [
-        { firstName: 'John', lastName: 'Doe' },
-        { firstName: 'Jane', lastName: 'Doe' },
-        { firstName: 'Bob', lastName: 'Doe' },
-        { firstName: 'Alice', lastName: 'Doe' },
-      ],
       actors: [
         {
           name: 'John Doe',
@@ -72,7 +68,22 @@ export default {
   methods: {
     changeMessage() {
       this.message = "The text has been changed!"
+    },
+    changeFullName() {
+      this.fullName = "Mohammad Siam"
     }
+  },
+  computed: {
+    fullName: {
+      get() {
+        return `${this.firstName} ${this.lastName}`
+      },
+      set(value) {
+        const names = value.split(' ')
+        this.firstName = names[0]
+        this.lastName = names[1]
+      }
+    },
   }
 }
 </script>
@@ -149,9 +160,9 @@ Essentially, it works like {{ ... }} interpolation but in a more explicit way --
           <label for="remoteWork">Open to work remote?</label>
         </div>
       </form>
-
     </div>
-
+    <h2> Fullname - {{ firstName }} {{ lastName }}</h2>
+    <button @click="changeFullName">Change Full Name</button>
   </div>
 </template>
 <!--Two ways to bind texts-->
